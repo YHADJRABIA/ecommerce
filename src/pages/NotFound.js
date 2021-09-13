@@ -21,7 +21,7 @@ const NotFound = () => {
     }
 
     if (counter === 0) {
-      history.push("/");
+      history.push("/ecommerce");
     }
     // Should unsubscribe to counter
     return () => {

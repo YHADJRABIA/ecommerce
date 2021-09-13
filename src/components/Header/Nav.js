@@ -16,12 +16,12 @@ const Nav = () => {
   const navItems = [
     {
       title: t("catalog"),
-      url: "/",
+      url: "/ecommerce",
       cName: "nav-links",
     },
     {
       title: t("cart"),
-      url: "/cart",
+      url: "/ecommerce/cart",
       cName: "nav-links",
       count,
     },

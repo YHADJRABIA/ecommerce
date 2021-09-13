@@ -11,8 +11,12 @@ const Body = () => {
   return (
     <main>
       <Switch>
-        <Route path={["/", "/home"]} exact component={Home} />
-        <Route path={"/cart"} exact component={Cart} />
+        <Route
+          path={["/", "/ecommerce/home", "/ecommerce"]}
+          exact
+          component={Home}
+        />
+        <Route path={"/ecommerce/cart"} exact component={Cart} />
         <Route path={"/*"} component={NotFound} />
       </Switch>
     </main>
