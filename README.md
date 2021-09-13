@@ -2,7 +2,8 @@
 
 Harry Potter e-commerce book-purchasing app, developed as part of Xebia's technical assessment.
 
-**The app may be accessed here: https://yhadjrabia.github.io/ecommerce/ ⚠️ However, due to gh-pages' routing issues for multi-page apps:
+**The app may be accessed here: https://yhadjrabia.github.io/ecommerce/
+⚠️ However, due to gh-pages' routing issues for multi-page apps:
 • gh-pages won't allow to experience my redirecting feature whenever the user inputs an unrouted address (example: https://yhadjrabia.github.io/ecommerce/a41fd8gr1trdqd), which is otherwise supposed to display a special "404-not-found" page and redirect the user to the home page after 3 seconds.
 • Refreshing the page from the cart page may result in a 404 error.
 To not encounter such issues it is hence recommended to install the via npm. (refer to *Installation* in the *Setup* section)⚠️**
