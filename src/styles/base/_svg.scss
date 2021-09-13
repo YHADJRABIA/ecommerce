@@ -1,0 +1,34 @@
+.border-svg {
+  margin-bottom: -10vw;
+  width: 100vw;
+}
+
+.regular-svg {
+  height: 25rem;
+  width: 25rem;
+}
+
+.hero-svg {
+  width: 26rem;
+  height: 15rem;
+}
+
+@include respond-to("medium") {
+  .regular-svg {
+    width: 50rem;
+    height: 30rem;
+  }
+  .hero-svg {
+    width: 25rem;
+    height: 20rem;
+  }
+}
+@include respond-to("large") {
+  .hero-svg {
+    width: 35rem;
+    height: 30rem;
+  }
+  .regular-svg {
+    height: 35rem;
+  }
+}

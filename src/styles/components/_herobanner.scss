@@ -1,0 +1,56 @@
+.hero-container {
+  width: 100vw;
+  padding-top: $nav-height + 5rem;
+  background-color: $primary-gray;
+}
+
+.hero-banner {
+  @include flexCenter(column, center);
+}
+
+.hero-text {
+  min-height: 30rem;
+  & > * {
+    margin: 5rem 1rem;
+    text-align: center;
+  }
+}
+.hero-title {
+  text-shadow: 0.05rem 0.15rem black;
+}
+.hero-content {
+  margin: 0 1.5rem;
+  line-height: 4.5rem;
+}
+
+.lang-section {
+  height: 20rem;
+  @include flexCenter(column, space-evenly);
+
+  button {
+    padding: 1rem 0.5rem;
+    width: 16rem;
+    @include flexCenter(row, space-evenly);
+  }
+}
+
+/*------------ Reponsive -----------*/
+
+@include respond-to("medium") {
+  .hero-content {
+    width: 70rem;
+  }
+}
+@include respond-to("large") {
+  .hero-banner {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .hero-content {
+    width: 85rem;
+  }
+  .lang-section {
+    transform: translateX(-28%);
+  }
+}

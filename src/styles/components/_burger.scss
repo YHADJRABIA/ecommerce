@@ -1,0 +1,39 @@
+/*--------- Burger icon ----------*/
+
+.burger-icon {
+  display: block;
+  cursor: pointer;
+  margin: 0 1rem;
+
+  & div {
+    width: 2.5rem;
+    height: 0.3rem;
+    margin: 0.5rem 0;
+    background-color: $primary-black;
+    transition: all 0.3s ease;
+
+    &.active {
+      background-color: $primary-white;
+    }
+  }
+}
+
+// Animation
+.burger-toggled {
+  & .burger-line-1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  & .burger-line-2 {
+    opacity: 0;
+  }
+  & .burger-line-3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+/*----------- Responsive --------------*/
+@include respond-to("medium") {
+  .burger-icon {
+    display: none;
+  }
+}

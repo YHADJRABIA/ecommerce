@@ -1,0 +1,126 @@
+.cart-page {
+  @include flexCenter(column, center);
+}
+
+.empty-cart {
+  @include flexCenter(column, space-around);
+  min-height: 50vh;
+  text-align: center;
+}
+
+.cart-items {
+  display: relative;
+  margin-top: $nav-height + 5rem;
+  text-align: center;
+  & > ul {
+    min-height: 50vh;
+    @include flexCenter(column, space-evenly, center);
+  }
+}
+
+.cart-item {
+  cursor: pointer;
+  margin: 1rem 0;
+  border-radius: 2rem;
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.05);
+  border: 1px solid $secondary-white;
+  transition: all 0.2s ease-in;
+  transition-property: transform, box-shadow;
+  padding: 0.5rem 0;
+  height: 50rem;
+  @include flexCenter(column, space-evenly, center);
+  width: 80vw;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.1);
+  }
+
+  &-left {
+    width: 80%;
+    height: 25rem;
+    @include flexCenter(column, space-around, center);
+  }
+  &-cover {
+    width: 10rem;
+    object-fit: scale-down;
+  }
+  &-title {
+    max-width: 85%;
+  }
+}
+
+.cart-total {
+  @include flexCenter(column, space-around, center);
+  width: 100vw;
+  margin-top: 20%;
+  height: 20rem;
+  background-color: $secondary-blue;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  color: $primary-gray;
+
+  &-top {
+    min-height: 15rem;
+    @include flexCenter(column, space-evenly, center);
+  }
+  em {
+    color: $primary-yellow;
+  }
+  i {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+}
+
+.cart-item-controls {
+  @include flexCenter(row, space-evenly);
+  min-width: 95%;
+}
+
+/*-------------- Responsive --------------*/
+
+@include respond-to("medium") {
+  .empty-cart {
+    justify-content: space-between;
+  }
+  .cart-item-controls {
+    min-width: 40rem;
+  }
+}
+@include respond-to("large") {
+  .cart-item {
+    justify-content: space-around;
+    height: auto;
+    width: 80vw;
+    margin: 2rem 0;
+    flex-direction: row;
+    &-left {
+      width: 55%;
+      flex-direction: row;
+    }
+
+    &-cover {
+      width: 15rem;
+    }
+    &-title {
+      max-width: 50%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-left: 2rem;
+    }
+  }
+
+  .cart-total {
+    flex-direction: row;
+    height: 15rem;
+    &-top {
+      align-items: flex-start;
+    }
+  }
+  .cart-item-controls {
+    min-width: 30%;
+  }
+}

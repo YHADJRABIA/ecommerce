@@ -1,0 +1,9 @@
+.home-page {
+  @include flexCenter(column, center);
+}
+
+/*------------ Reponsive -----------*/
+@include respond-to("medium") {
+}
+@include respond-to("large") {
+}

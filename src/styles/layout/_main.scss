@@ -1,0 +1,12 @@
+main {
+  min-height: 100vh;
+  @include flexCenter(column);
+}
+/*------------ Reponsive -----------*/
+@include respond-to("medium") {
+  main {
+    //padding: 2rem;
+  }
+}
+@include respond-to("large") {
+}

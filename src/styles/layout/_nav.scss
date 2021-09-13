@@ -1,0 +1,138 @@
+.NavItems {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 5;
+  transition: all 0.3s ease-in;
+  transition-property: background-color, color;
+  height: $nav-height;
+  @include flexCenter(row, space-around);
+
+  & > * {
+    color: $primary-black;
+
+    &.active {
+      color: $primary-gray;
+    }
+  }
+
+  &.active {
+    background: $background-black;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Logo */
+.nav-logo {
+  width: 23rem;
+
+  & a {
+    @include flexCenter(row, center, center);
+    i {
+      margin-left: 1rem;
+    }
+  }
+
+  &.active {
+    & * {
+      color: $primary-yellow;
+    }
+  }
+}
+
+/* Content */
+.nav-menu {
+  @include flexCenter(column, flex-start);
+  position: absolute;
+  top: $nav-height; // Height of nav
+  left: -120%;
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  transition-property: left, opacity;
+  width: 100vw;
+  background-color: $background-black;
+
+  &.toggled {
+    background-color: $background-black;
+    opacity: 100%;
+    left: 0;
+    z-index: 999;
+  }
+}
+
+.nav-links {
+  font-family: lobster;
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem;
+  width: 100vw;
+  display: table;
+  color: $primary-gray;
+  transition: background-color 0.3s ease-out;
+  position: relative;
+
+  &:hover {
+    background-color: $secondary-blue;
+    color: $primary-gray;
+  }
+  .cart-badge {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 25%;
+    left: 55%;
+    min-width: 2rem;
+    height: 2rem;
+    background-color: #6d76f7;
+    border-radius: 50%;
+    font-size: 2rem;
+    @include flexCenter(column);
+  }
+}
+
+/*----------- Responsive --------------*/
+@include respond-to("medium") {
+  .nav-menu {
+    @include initialProperties;
+    flex-direction: row;
+    opacity: 1;
+    background-color: initial;
+
+    &.toggled {
+      background-color: transparent;
+    }
+
+    li a {
+      font-size: 2.2rem;
+    }
+
+    & > :nth-child(3n) {
+      padding-bottom: 0;
+      padding-right: 2rem;
+    }
+  }
+
+  .nav-links {
+    transition: all 0.3s ease;
+    color: $primary-black;
+    transition-property: border-radius, background-color, color, left;
+    width: initial;
+    &:hover {
+      border-radius: 0.4rem;
+    }
+
+    &.active {
+      color: $primary-gray;
+      &:hover {
+        background-color: transparent;
+        color: $primary-yellow;
+      }
+    }
+    .cart-badge {
+      left: 85%;
+    }
+  }
+}
+
+@include respond-to("large") {
+}

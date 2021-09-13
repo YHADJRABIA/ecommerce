@@ -1,0 +1,84 @@
+.booklist-container > ul {
+  @include flexCenter(column, center, normal);
+  border: 1px solid $secondary-white;
+  margin: 4rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  width: 90vw;
+  min-height: 65vh;
+}
+
+.book {
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.05);
+  border: 1px solid $secondary-white;
+  text-align: center;
+  padding: 5rem 0;
+
+  &-image {
+    cursor: pointer;
+    position: relative;
+  }
+
+  &-cover {
+    height: 35rem;
+    object-fit: contain;
+  }
+  &-overlay {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: opacity 0.5s ease;
+    background-color: $primary-black;
+    .book-availablity {
+      color: $primary-gray;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &-text {
+    @include flexCenter(column, space-evenly);
+    padding: 0 1rem;
+    height: 20rem;
+  }
+
+  &-not-found {
+    padding: 0 1rem;
+    text-align: center;
+  }
+}
+
+/*------------ Reponsive -----------*/
+@include respond-to("medium") {
+  .booklist-container ul {
+    flex-direction: row;
+    align-content: center;
+  }
+
+  .book {
+    margin: 7rem;
+    border-radius: 3rem;
+    padding: 2rem;
+
+    &-cover {
+      height: 45rem;
+    }
+  }
+}
+@include respond-to("large") {
+  .book {
+    &-image {
+      &:hover .book-overlay {
+        opacity: 0.95;
+      }
+    }
+    &-cover {
+      height: 55rem;
+    }
+  }
+}

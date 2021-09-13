@@ -1,0 +1,9 @@
+.page-not-found {
+  height: 80vh;
+  @include flexCenter(column);
+}
+
+@include respond-to("medium") {
+}
+@include respond-to("large") {
+}

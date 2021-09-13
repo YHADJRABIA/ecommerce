@@ -1,0 +1,6 @@
+footer {
+  @include flexCenter(column);
+  background: $black-linear-gradient;
+  height: $footer-height;
+  color: #fff;
+}
