@@ -55,7 +55,7 @@ const Nav = () => {
   return (
     <nav ref={menuRef} className={`NavItems ${navbar ? "active" : ""}`}>
       <div className={`nav-logo ${navbar ? "active" : ""}`}>
-        <Link to="/" title="Logo">
+        <Link to="/ecommerce" title="Logo">
           <h2> {t("hp")}</h2> <i className="fas fa-magic"></i>
         </Link>
       </div>

@@ -17,6 +17,7 @@
   &-image {
     cursor: pointer;
     position: relative;
+    @include flexCenter(column);
   }
 
   &-cover {
