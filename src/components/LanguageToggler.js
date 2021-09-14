@@ -20,6 +20,7 @@ const LanguageToggler = () => {
     <div className="lang-section">
       <h4>{t("switchLang")}</h4>
       <button
+        data-testid="switch-lang"
         title={t("language")}
         className="btn-primary"
         onClick={

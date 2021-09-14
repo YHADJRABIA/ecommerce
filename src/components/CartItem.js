@@ -47,7 +47,8 @@ const CartItem = ({ item }) => {
 
       <div className="cart-item-controls">
         <button
-          title={t("removeItem")}
+          data-testid="decrement-item"
+          title={t("decrementItem")}
           className="btn-regular"
           onClick={() => handleDecrement(item)}
         >
@@ -60,7 +61,8 @@ const CartItem = ({ item }) => {
           </h4>
         </div>
         <button
-          title={t("removeItem")}
+          data-testid="increment-item"
+          title={t("incrementItem")}
           className="btn-regular"
           onClick={() => handleIncrement(item)}
         >
@@ -69,6 +71,7 @@ const CartItem = ({ item }) => {
       </div>
 
       <button
+        data-testid="remove-item"
         title={t("removeItem")}
         className="btn-secondary"
         onClick={() => handleRemove(item)}

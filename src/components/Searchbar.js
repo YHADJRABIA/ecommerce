@@ -20,6 +20,7 @@ const Searchbar = () => {
     <div className="search-bar">
       <i className="fa fa-search"></i>
       <input
+        data-testid="search-value"
         autoComplete="off"
         autoFocus
         onChange={(e) => handleSearch(e.target.value)}

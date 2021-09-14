@@ -17,7 +17,7 @@
   }
 
   &.active {
-    background: $background-black;
+    background-color: $background-black;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
       0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
@@ -54,6 +54,8 @@
   background-color: $background-black;
 
   &.toggled {
+    box-shadow: 0 4px 26px -1px rgba(255, 255, 255, 0.13),
+      0 2px 4px 1px rgba(255, 255, 255, 0.5);
     background-color: $background-black;
     opacity: 1;
     left: 0;
@@ -99,6 +101,7 @@
     background-color: initial;
 
     &.toggled {
+      box-shadow: none;
       background-color: transparent;
     }
 

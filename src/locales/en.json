@@ -19,6 +19,8 @@
   "addedItem": "Item successfully added!",
   "confirmRemoval": "Proceed with removing the item from your cart?",
   "removeItem": "Remove",
+  "incrementItem": "One more",
+  "decrementItem": "One less",
   "totalBeforeDiscounts": "Total without discounts:",
   "discounts": "Discounts:",
   "grandTotal": "Grand total:"

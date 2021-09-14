@@ -19,6 +19,8 @@
   "addedItem": "Livre rajouté avec succès !",
   "confirmRemoval": "Êtes-vous sûre de vouloir retirer ce livre du panier ?",
   "removeItem": "Supprimer",
+  "incrementItem": "Augmenter",
+  "decrementItem": "Diminuer",
   "totalBeforeDiscounts": "Total avant réductions :",
   "discounts": "Réductions :",
   "grandTotal": "Grand total :"
