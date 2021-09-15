@@ -2,9 +2,9 @@ import React from "react";
 
 import { useTranslation } from "react-i18next"; // Translation
 
-import { useDispatchCart } from "../contexts/CartContext"; // Contexts
+import { useDispatchCart } from "../../contexts/CartContext"; // Contexts
 
-import { notify } from "../utils/Notification"; // Notifications
+import { notify } from "../../utils/Notification"; // Notifications
 
 const Book = ({ book }) => {
   const dispatch = useDispatchCart();

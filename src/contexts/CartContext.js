@@ -131,20 +131,20 @@ export const CartProvider = ({ children, stateInit }) => {
     const fetchDeals = async (isbns) => {
       // Only fetches discounts if the card isn't empty
       if (state.cart.length !== 0) {
-        await axios
-          .get(
+        try {
+          const res = await axios.get(
             `https://henri-potier.techx.fr/books/${isbns.join(
               ","
             )}/commercialOffers`
-          )
-          .then((response) => {
-            console.log(response.data);
-            dispatch({
-              type: "GET_DEALS",
-              payload: response.data,
-            });
-          })
-          .catch((error) => console.log(error));
+          );
+          console.log(res.data);
+          dispatch({
+            type: "GET_DEALS",
+            payload: res.data,
+          });
+        } catch (err) {
+          console.log(err);
+        }
       }
     };
     fetchDeals(state.cart.map((item) => item.isbn));

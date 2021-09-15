@@ -8,8 +8,8 @@ import { useCart } from "../contexts/CartContext"; // Contexts
 
 // Components
 
-import CartItems from "../components/CartItems";
-import PriceContainer from "../components/PriceContainer";
+import CartItems from "../components/Cart/CartItems";
+import PriceContainer from "../components/Cart/PriceContainer";
 
 const Cart = () => {
   const { cart } = useCart(); // Cart array

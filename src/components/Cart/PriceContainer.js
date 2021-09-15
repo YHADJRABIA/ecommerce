@@ -1,5 +1,5 @@
 import React from "react";
-import { useCart } from "../contexts/CartContext"; // Contexts
+import { useCart } from "../../contexts/CartContext"; // Contexts
 
 import { useTranslation } from "react-i18next"; // Translation
 

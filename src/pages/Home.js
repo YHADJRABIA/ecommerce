@@ -4,9 +4,9 @@ import { DataContext } from "../contexts/DataContext"; // Contexts
 
 // Components
 import Loading from "../components/Loading";
-import Searchbar from "../components/Searchbar";
-import BookList from "../components/BookList";
-import HeroBanner from "../components/HeroBanner";
+import Searchbar from "../components/Home/Searchbar";
+import BookList from "../components/Home/BookList";
+import HeroBanner from "../components/Home/HeroBanner";
 
 const Home = () => {
   const { books, loading } = useContext(DataContext);

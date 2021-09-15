@@ -16,14 +16,14 @@ export const DataProvider = ({ children }) => {
   // Fetching API data upon rendering
   useEffect(() => {
     const fetchData = async () => {
-      await axios
-        .get("https://henri-potier.techx.fr/books")
-        .then((response) => {
-          console.log(response.data);
-          setBooks(response.data);
-          setLoading(false);
-        })
-        .catch((error) => console.log(error));
+      try {
+        const res = await axios.get("https://henri-potier.techx.fr/books");
+        console.log(res.data);
+        setBooks(res.data);
+        setLoading(false);
+      } catch (err) {
+        console.error("The Promise is rejected!", err);
+      }
     };
 
     fetchData();

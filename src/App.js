@@ -8,7 +8,7 @@ import { DataProvider } from "./contexts/DataContext";
 import { CartProvider } from "./contexts/CartContext";
 
 // Layout
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
 

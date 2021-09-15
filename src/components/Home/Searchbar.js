@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 
 // Contexts
-import { DataContext } from "../contexts/DataContext";
+import { DataContext } from "../../contexts/DataContext";
 
 const Searchbar = () => {
   const { setSearch } = useContext(DataContext);

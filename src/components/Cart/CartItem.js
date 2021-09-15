@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next"; // Translation
 
-import { useDispatchCart } from "../contexts/CartContext"; // Contexts
+import { useDispatchCart } from "../../contexts/CartContext"; // Contexts
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatchCart();

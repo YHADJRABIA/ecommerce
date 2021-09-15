@@ -2,7 +2,7 @@ import React from "react";
 
 import { useTranslation } from "react-i18next"; // Translation
 
-import HeroImage from "../resources/HeroImage"; // Svg
+import HeroImage from "../../resources/HeroImage"; // Svg
 
 import LanguageToggler from "./LanguageToggler"; // Components
 
