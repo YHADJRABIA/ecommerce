@@ -23,6 +23,11 @@ npm install
 npm start
 ```
 
+## Upcoming features:
+
+- Discount feature.
+- Paypal cashout.
+
 ## Technologies:
 
 - Functional ReactJS with hooks.
