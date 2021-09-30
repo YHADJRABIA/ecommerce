@@ -18,22 +18,7 @@ const BookList = ({ books }) => {
     // Rerendering the data 0.25 secs after user's input
     const filterDebounce = setTimeout(() => {
       setFilteredBooks(
-        books.filter(
-          (book) => book.title.toLowerCase().includes(search)
-
-          /*           const filteredData = data.filter((item) => {
-            return Object.keys(item).some((key) =>
-            excludeColumns.includes(key)
-            ? false
-            : item[key].toString().toLowerCase().includes(lowercasedValue)
-            )
-            }) */
-
-          /*  (book) =>
-            book.title.toLowerCase().includes(search) ||
-            book.synopsis.map((item) => item.toLowerCase().includes(search))
-        ) */
-        )
+        books.filter((book) => book.title.toLowerCase().includes(search))
       );
     }, 250);
 

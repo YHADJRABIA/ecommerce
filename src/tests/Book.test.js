@@ -4,9 +4,9 @@ import { CartProvider } from "../contexts/CartContext";
 import { initReactI18next, useTranslation } from "react-i18next"; // Translation
 import { I18nextProvider } from "react-i18next";
 import i18n from "../i18n/i18n";
-import Book from "../components/Book";
+import Book from "../components/Home/Book";
 
-const mMock = jest.fn();
+/* const mMock = jest.fn();
 
 jest.mock("react-i18next", () => {
   // this mock makes sure any components using the translate hook can use it without a warning being shown
@@ -18,9 +18,9 @@ jest.mock("react-i18next", () => {
       .fn()
       .mockImplementation(originalI18next.useTranslation),
   };
-});
+}); */
 
-const testBook = {
+const mockBook = {
   isbn: "isbn",
   cover: "cover",
   price: 0.5,
@@ -28,7 +28,7 @@ const testBook = {
   title: "title",
 };
 
-const testState = {
+const mockState = {
   total: 0,
   count: 0,
   cart: [],
@@ -40,13 +40,27 @@ const testState = {
 describe("Book component", () => {
   it("component renders without crashing", () => {
     render(
-      <CartProvider stateInit={testState}>
-        <Book book={testBook} />
+      <CartProvider stateInit={mockState}>
+        <Book book={mockBook} />
       </CartProvider>
     );
   });
 
-  it("should add book upon button click", () => {
+  it("adds book upon button click", () => {
+    const { getByText } = render(
+      <CartProvider stateInit={mockState}>
+        <Book book={mockBook} />
+      </CartProvider>
+    );
+
+    const addToCartBtn = getByText("Ajouter au panier");
+
+    fireEvent.click(addToCartBtn);
+    expect(mockState.cart).toHaveLength(1);
+    //expect(mockState.count).toEqual(1);
+  });
+
+  /*   it("should add book upon button click", () => {
     const { t } = useTranslation();
     // "Add to cart" button
     const addToCartBtn = screen.getByTestId("add-to-cart");
@@ -61,5 +75,5 @@ describe("Book component", () => {
     fireEvent.click(addToCartBtn);
 
     expect(testState.count).toEqual(1);
-  });
+  }); */
 });
