@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useTranslation } from "react-i18next"; // Translation
 
-import CartImage from "../resources/CartImage"; // Svg
-
-import { useCart } from "../contexts/CartContext"; // Contexts
+// Redux
+import { useSelector, useDispatch } from "react-redux";
+import { fetchDiscounts } from "../redux/cartSlice";
 
 // Components
-
-import CartItems from "../components/Cart/CartItems";
+import CartImage from "../resources/CartImage"; // Svg
+import CartList from "../components/Cart/CartIList";
 import PriceContainer from "../components/Cart/PriceContainer";
 
 const Cart = () => {
-  const { cart } = useCart(); // Cart array
+  const dispatch = useDispatch();
   const { t } = useTranslation();
+  const { cart, total } = useSelector((state) => state.cart);
+
+  /*   useEffect(() => {
+    dispatch(fetchDiscounts(cart.map((item) => item.isbn)));
+  }, [dispatch, cart]); */
+
   return (
     <div className="cart-page">
       {/* If cart is empty return svg */}
@@ -24,8 +30,8 @@ const Cart = () => {
         </div>
       ) : (
         <>
-          <CartItems />
-          <PriceContainer />
+          <CartList cart={cart} />
+          <PriceContainer total={total} />
         </>
       )}
     </div>

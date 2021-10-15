@@ -1,6 +1,8 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 
-import { DataContext } from "../contexts/DataContext"; // Contexts
+// Redux
+import { useSelector, useDispatch } from "react-redux";
+import { fetchBooks } from "../redux/booksSlice";
 
 // Components
 import Loading from "../components/Loading";
@@ -9,21 +11,25 @@ import BookList from "../components/Home/BookList";
 import HeroBanner from "../components/Home/HeroBanner";
 
 const Home = () => {
-  const { books, loading } = useContext(DataContext);
+  const dispatch = useDispatch();
+  const { status, books, search } = useSelector((state) => state.books);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    dispatch(fetchBooks({}));
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>
       <HeroBanner />
       <div className="home-page">
         {/* Loading animation if API data hasn't been gotten yet */}
-        {loading ? (
+        {status === "loading" ? (
           <Loading />
         ) : (
           <>
             <Searchbar />
-            <BookList books={books} />
+            <BookList books={books} search={search} />
           </>
         )}
       </div>

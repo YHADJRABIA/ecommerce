@@ -1,36 +1,34 @@
 import React from "react";
 import { useTranslation } from "react-i18next"; // Translation
 
-import { useDispatchCart } from "../../contexts/CartContext"; // Contexts
+// Redux
+import { useDispatch } from "react-redux";
+import {
+  add_item,
+  decrement_quantity,
+  remove_item,
+  clear_cart,
+} from "../../redux/cartSlice";
 
 const CartItem = ({ item }) => {
-  const dispatch = useDispatchCart();
+  const dispatch = useDispatch();
 
   const { t } = useTranslation();
   const { title, cover, price, quantity } = item;
 
   // Removing item from cart
   const handleRemove = (item) => {
-    dispatch({
-      type: "REMOVE_ITEM",
-      payload: item,
-    });
+    dispatch(remove_item(item));
   };
 
   // Decrementing item's quantity
   const handleDecrement = (item) => {
-    dispatch({
-      type: "DECREMENT_QUANTITY",
-      payload: item,
-    });
+    dispatch(decrement_quantity(item));
   };
 
   // Incrementing item's quantity
   const handleIncrement = (item) => {
-    dispatch({
-      type: "ADD_ITEM",
-      payload: item,
-    });
+    dispatch(add_item(item));
   };
 
   return (

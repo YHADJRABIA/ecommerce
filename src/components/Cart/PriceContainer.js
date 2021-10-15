@@ -1,11 +1,11 @@
 import React from "react";
-import { useCart } from "../../contexts/CartContext"; // Contexts
 
 import { useTranslation } from "react-i18next"; // Translation
 
-const PriceContainer = () => {
+const PriceContainer = ({ total }) => {
   const { t } = useTranslation();
-  const { total } = useCart();
+
+  console.log(process.env.REACT_APP_PUBLIC_PAYPAL_KEY);
 
   return (
     <div className="cart-total">

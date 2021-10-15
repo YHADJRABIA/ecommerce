@@ -1,20 +1,21 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 
-// Contexts
-import { DataContext } from "../../contexts/DataContext";
+// Redux
+import { useDispatch } from "react-redux";
+import { search_books } from "../../redux/booksSlice";
 
 const Searchbar = () => {
-  const { setSearch } = useContext(DataContext);
+  const dispatch = useDispatch();
 
-  // Sets filter value to user's input
-  const handleSearch = (searchValue) => {
-    setSearch(searchValue.toLowerCase());
+  // Sets search value to user's input
+  const handleSearch = (e) => {
+    dispatch(search_books(e.toLowerCase()));
   };
 
   // Voids search value upon rendering to prevent bugs
   useEffect(() => {
-    setSearch("");
-  }, [setSearch]);
+    dispatch(search_books(""));
+  }, [dispatch]);
 
   return (
     <div className="search-bar">

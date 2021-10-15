@@ -1,21 +1,38 @@
-import React, { useEffect, useReducer, useContext, createContext } from "react";
-import axios from "axios"; // HTTP requests
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const CartStateContext = createContext(); // Holds state of the Cart
-const CartDispatchContext = createContext(); // Holds dispatch function
+// API fetcher
+import axios from "axios";
 
 // Gets cart content from browser's local storage
-const savedCart = JSON.parse(localStorage.getItem("cart"));
-const savedCount = JSON.parse(localStorage.getItem("count"));
-const savedTotal = JSON.parse(localStorage.getItem("total"));
 
-export const initialState = {
-  total: savedTotal || 0, // Total amount of money
-  count: savedCount || 0, // Number of items in cart
-  cart: savedCart || [], // Cart initially contains no items unless saved in Local Storage
-  offers: [],
+const savedCart = JSON.parse(localStorage.getItem("savedCart")) || [];
+
+const initialState = {
+  status: null,
+  error: null,
+  total: savedCart.total || 0, // Total amount of money
+  count: savedCart.count || 0, // Number of items in cart
+  cart: savedCart.cart || [], // Cart initially contains no items unless saved in Local Storage
+  offers: savedCart.offers || [],
   discount: null, // To be substracted from total
 };
+
+export const fetchDiscounts = createAsyncThunk(
+  "discounts/fetchDiscounts",
+  async (isbns, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_PUBLIC_DATA_URL}/${isbns.join(
+          ","
+        )}/commercialOffers`
+      );
+      return data;
+    } catch (err) {
+      console.log(err.reponse.data);
+      return rejectWithValue("An error occured.");
+    }
+  }
+);
 
 // Computes discount based on API's return value
 const computeDiscount = (state, offer) => {
@@ -48,13 +65,20 @@ const getBestDiscount = (state) => {
     .sort((a, b) => (a.amount < b.amount ? 1 : -1))[0];
 };
 
-const cartReducer = (state, action) => {
-  switch (action.type) {
-    case "GET_DEALS":
-      console.log("state", state.offers);
-      return { ...state, offers: [...state.offers, action.payload.offers] };
+export const cartSlice = createSlice({
+  name: "cart",
+  initialState,
 
-    case "ADD_ITEM":
+  reducers: {
+    hydrate: (action) => {
+      // do not do state = action.payload it will not update the store
+      return action.payload;
+    },
+    get_deals: (state, action) => {
+      return { ...state, offers: [...state.offers, action.payload.offers] };
+    },
+
+    add_item: (state, action) => {
       // Set item's quantity to 1 if not contained in cart, otherwise increment it
       return !state.cart.find((item) => item.isbn === action.payload.isbn)
         ? {
@@ -77,8 +101,9 @@ const cartReducer = (state, action) => {
               }),
             ],
           };
+    },
 
-    case "DECREMENT_QUANTITY":
+    decrement_quantity: (state, action) => {
       // If item's quantity is 1 remove from cart, otherwise decrement it
       return state.cart.find((item) => item.isbn === action.payload.isbn)
         .quantity === 1
@@ -102,65 +127,47 @@ const cartReducer = (state, action) => {
               }),
             ],
           };
+    },
 
-    // Removing matching item
-    case "REMOVE_ITEM":
+    remove_item: (state, action) => {
       return {
         ...state,
         count: state.count - action.payload.quantity,
         total: state.total - action.payload.quantity * action.payload.price,
         cart: state.cart.filter((item) => item.isbn !== action.payload.isbn),
       };
+    },
 
-    // Emptying cart
-    case "CLEAR_CART":
+    clear_cart: () => {
       return initialState;
+    },
+  },
 
-    default:
-      throw new Error(`Unknown action ${action.type}`);
-  }
-};
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchDiscounts.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchDiscounts.fulfilled, (state, action) => {
+        state.status = "success";
+        /*   state.offers = [
+          ...state.offers.filter((offer) => offer === action.payload),
+          action.payload,
+        ]; */
+      })
+      .addCase(fetchDiscounts.rejected, (state) => {
+        state.status = "rejected";
+      });
+  },
+});
 
-export const CartProvider = ({ children, stateInit }) => {
-  const [state, dispatch] = useReducer(cartReducer, initialState);
-  stateInit = state;
+export const {
+  hydrate,
+  get_deals,
+  add_item,
+  decrement_quantity,
+  remove_item,
+  clear_cart,
+} = cartSlice.actions;
 
-  // Saving / updating cart on local storage
-  useEffect(() => {
-    // Fetching discounts
-    const fetchDeals = async (isbns) => {
-      // Only fetches discounts if the card isn't empty
-      if (state.cart.length !== 0) {
-        try {
-          const res = await axios.get(
-            `https://henri-potier.techx.fr/books/${isbns.join(
-              ","
-            )}/commercialOffers`
-          );
-          console.log(res.data);
-          dispatch({
-            type: "GET_DEALS",
-            payload: res.data,
-          });
-        } catch (err) {
-          console.log(err);
-        }
-      }
-    };
-    fetchDeals(state.cart.map((item) => item.isbn));
-    localStorage.setItem("cart", JSON.stringify(state.cart));
-    localStorage.setItem("count", JSON.stringify(state.count));
-    localStorage.setItem("total", JSON.stringify(state.total));
-  }, [state.cart, state.count, state.total]);
-
-  return (
-    <CartDispatchContext.Provider value={dispatch}>
-      <CartStateContext.Provider value={state}>
-        {children}
-      </CartStateContext.Provider>
-    </CartDispatchContext.Provider>
-  );
-};
-
-export const useCart = () => useContext(CartStateContext);
-export const useDispatchCart = () => useContext(CartDispatchContext);
+export default cartSlice.reducer;

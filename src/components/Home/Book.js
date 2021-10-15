@@ -2,21 +2,20 @@ import React from "react";
 
 import { useTranslation } from "react-i18next"; // Translation
 
-import { useDispatchCart } from "../../contexts/CartContext"; // Contexts
-
 import { notify } from "../../utils/Notification"; // Notifications
 
+// Redux
+import { useDispatch } from "react-redux";
+import { add_item } from "../../redux/cartSlice";
+
 const Book = ({ book }) => {
-  const dispatch = useDispatchCart();
+  const dispatch = useDispatch();
 
   const { t } = useTranslation();
 
   // Adding item to cart
   const handleClick = (item) => {
-    dispatch({
-      type: "ADD_ITEM",
-      payload: item,
-    });
+    dispatch(add_item(item));
     notify(t("addedItem"));
   };
 

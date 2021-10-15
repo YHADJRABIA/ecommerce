@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next"; // Translation
 
-import { useCart } from "../../contexts/CartContext"; // Contexts
+// Redux
+import { useSelector } from "react-redux";
 
 /* Components */
 import BurgerMenu from "./BurgerMenu";
 
 const Nav = () => {
-  const { count } = useCart(); // Number of items contained in cart
+  const { count } = useSelector((state) => state.cart); // Number of items contained in cart
 
   const { t } = useTranslation();
   const menuRef = useRef(); // To detect if user clicks outside of the menu area, close the menu if so
