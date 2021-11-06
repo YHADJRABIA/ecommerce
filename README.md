@@ -2,6 +2,8 @@
 
 Harry Potter e-commerce book-purchasing app, developed as part of Xebia's technical assessment.
 
+**Tests can be viewed here: https://dashboard.cypress.io/projects/myru3b/runs/1/specs**
+
 **The app may be accessed here: https://yhadjrabia.github.io/ecommerce/
 ⚠️ However, due to gh-pages' routing issues for multi-page apps:
 • gh-pages won't allow to experience my redirecting feature whenever the user inputs an unrouted address (example: https://yhadjrabia.github.io/ecommerce/a41fd8gr1trdqd), which is otherwise supposed to display a special "404-not-found" page and redirect the user to the home page after 3 seconds.
