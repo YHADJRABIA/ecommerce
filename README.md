@@ -34,7 +34,7 @@ npm start
 - Axios for HTTP requests to API.
 - i18n for internationalization.
 - Sass using the 7-1 pattern.
-- React Context API with useReducer for global state management (Respecting state immutability).
+- Redux Toolkit for global state management (Respecting state immutability).
 
 ## Features:
 
