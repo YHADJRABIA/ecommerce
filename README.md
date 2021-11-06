@@ -23,6 +23,12 @@ npm install
 npm start
 ```
 
+#### Tests:
+
+```
+npm run cypress
+```
+
 ## Upcoming features:
 
 - Discount feature.
@@ -35,6 +41,7 @@ npm start
 - i18n for internationalization.
 - Sass using the 7-1 pattern.
 - Redux Toolkit for global state management (Respecting state immutability).
+- Cypress for UI, localstorage and Redux store tests.
 
 ## Features:
 
@@ -48,3 +55,4 @@ npm start
 - ✓ Loading animations and toast notifications for better user experience.
 - ✓ 404-not-found routing.
 - ✓ Meta parameters (icon, description, link thumbnail).
+- ✓ Cypress end-to-end tests.
