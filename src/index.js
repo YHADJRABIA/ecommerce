@@ -29,3 +29,8 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+// Enables Redux testing with Cypress
+if (window.Cypress) {
+  window.store = store;
+}

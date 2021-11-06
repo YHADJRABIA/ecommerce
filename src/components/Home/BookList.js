@@ -31,7 +31,7 @@ const BookList = ({ books }) => {
 
   return (
     <div className="booklist-container">
-      <ToastContainer limit={2} />;
+      <ToastContainer limit={2} />
       <ul>
         {filteredBooks.length === 0 ? (
           <div className="book-not-found">

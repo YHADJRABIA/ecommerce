@@ -19,11 +19,13 @@ const Nav = () => {
       title: t("catalog"),
       url: "/ecommerce",
       cName: "nav-links",
+      testId: "catalog",
     },
     {
       title: t("cart"),
       url: "/ecommerce/cart",
       cName: "nav-links",
+      testId: "cart",
       count,
     },
   ];
@@ -56,7 +58,7 @@ const Nav = () => {
   return (
     <nav ref={menuRef} className={`NavItems ${navbar ? "active" : ""}`}>
       <div className={`nav-logo ${navbar ? "active" : ""}`}>
-        <Link to="/ecommerce" title="Logo">
+        <Link to="/ecommerce" title="Logo" data-testid="logo">
           <h2> {t("hp")}</h2> <i className="fas fa-magic"></i>
         </Link>
       </div>
@@ -72,12 +74,13 @@ const Nav = () => {
               to={item.url}
               title={item.title}
               className={`${item.cName} ${navbar ? "active" : ""}`}
+              data-testid={item.testId}
               onClick={() => setToggled(false)}
             >
               {item.title}
               {item.count ? (
                 <div className="cart-badge">
-                  <small>{item.count}</small>
+                  <small data-testid="cart-badge">{item.count}</small>
                 </div>
               ) : null}
             </Link>
