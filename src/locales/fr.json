@@ -9,7 +9,7 @@
   "language": "English",
   "flag": "Drapeau",
   "inStock": "En stock !",
-  "price": "Prix",
+  "price": "Prix : ",
   "addToCart": "Ajouter au panier",
   "bookNotFound": "Impossible de trouver le livre que vous recherchez.",
   "pageNotFound": "La page que vous recherchez n'existe pas.",

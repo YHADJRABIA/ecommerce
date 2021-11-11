@@ -35,7 +35,7 @@ const Book = ({ book }) => {
       <div className="book-text">
         <h4 className="book-title">{book.title}</h4>
         <h4 className="book-price">
-          {t("price")} :
+          {t("price")}
           <em data-testid="item-price">{book.price.toFixed(2)} €</em>
         </h4>
 
