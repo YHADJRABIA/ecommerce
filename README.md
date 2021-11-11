@@ -34,13 +34,13 @@ npm run cypress
 ## Upcoming features:
 
 - Discount feature.
-- Paypal cashout.
 
 ## Technologies:
 
 - Functional ReactJS with hooks.
 - Axios for HTTP requests to API.
 - i18n for internationalization.
+- Paypal's API.
 - Sass using the 7-1 pattern.
 - Redux Toolkit for global state management (Respecting state immutability).
 - Cypress for UI, localstorage and Redux store tests.
@@ -57,4 +57,5 @@ npm run cypress
 - ✓ Loading animations and toast notifications for better user experience.
 - ✓ 404-not-found routing.
 - ✓ Meta parameters (icon, description, link thumbnail).
+- ✓ Paypal checkout.
 - ✓ Cypress end-to-end tests.
