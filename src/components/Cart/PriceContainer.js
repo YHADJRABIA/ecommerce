@@ -5,8 +5,6 @@ import { useTranslation } from "react-i18next"; // Translation
 const PriceContainer = ({ total }) => {
   const { t } = useTranslation();
 
-  console.log(process.env.REACT_APP_PUBLIC_PAYPAL_KEY);
-
   return (
     <div className="cart-total">
       <div className="cart-total-top">

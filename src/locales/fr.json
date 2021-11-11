@@ -23,5 +23,10 @@
   "decrementItem": "Diminuer",
   "totalBeforeDiscounts": "Total avant réductions :",
   "discounts": "Réductions :",
-  "grandTotal": "Grand total :"
+  "grandTotal": "Grand total :",
+  "checkout": "Caisse",
+  "disclaimer": "Il s'agit là d'une simulation de paiement, aucun motant ne sera réellement prelevé. Il est possible d'introduire « 4242 4242 4242 4242 » comme numéro de carte bancaire à titre d'exemple.",
+  "successfulTransaction": "Transaction complétée avec succès",
+  "cancelledTransaction": "Transaction annulée",
+  "failedTransaction": "Transaction échouée"
 }

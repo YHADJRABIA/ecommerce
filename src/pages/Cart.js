@@ -10,6 +10,7 @@ import { fetchDiscounts } from "../redux/cartSlice";
 import CartImage from "../resources/CartImage"; // Svg
 import CartList from "../components/Cart/CartIList";
 import PriceContainer from "../components/Cart/PriceContainer";
+import Cashout from "../components/Cart/Checkout";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const Cart = () => {
       ) : (
         <>
           <CartList cart={cart} />
+          <Cashout total={total} cart={cart} />
           <PriceContainer total={total} />
         </>
       )}

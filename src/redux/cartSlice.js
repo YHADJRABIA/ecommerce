@@ -138,8 +138,15 @@ export const cartSlice = createSlice({
       };
     },
 
-    clear_cart: () => {
-      return initialState;
+    clear_cart: (state) => {
+      return {
+        ...state,
+        total: 0,
+        count: 0,
+        cart: [],
+        offers: [],
+        discount: null,
+      };
     },
   },
 

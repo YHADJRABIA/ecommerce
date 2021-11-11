@@ -23,5 +23,10 @@
   "decrementItem": "One less",
   "totalBeforeDiscounts": "Total without discounts:",
   "discounts": "Discounts:",
-  "grandTotal": "Grand total:"
+  "grandTotal": "Grand total:",
+  "checkout": "Checkout",
+  "disclaimer": "Please beware that the following is for demonstrative purposes only, no amount of money would actually be withdrawn. Please input \"4242 4242 4242 4242\" as your card number.",
+  "successfulTransaction": "Transaction successfully completed",
+  "cancelledTransaction": "Transaction cancelled",
+  "failedTransaction": "Transaction failed"
 }

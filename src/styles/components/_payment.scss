@@ -1,0 +1,33 @@
+.checkout-section {
+  @include flexCenter(column, space-around, center);
+
+  & > :first-child {
+    margin-top: 10%;
+    width: 70%;
+  }
+}
+
+.paypal-container {
+  margin-top: 8rem;
+  padding-top: 3rem;
+  z-index: 0;
+  width: 100%;
+  min-height: 30rem;
+  @include flexCenter(column, space-around, center);
+  border: 1px solid $secondary-white;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  & > :first-child {
+    margin-bottom: 3rem;
+  }
+}
+
+/*------------ Reponsive -----------*/
+@include respond-to("medium") {
+  .paypal-container {
+    width: 50rem;
+    min-height: 35rem;
+  }
+}
+@include respond-to("large") {
+}
