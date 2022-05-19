@@ -1,35 +1,29 @@
-import React from "react";
-import { useTranslation } from "react-i18next"; // Translation
+import React from "react"
+import { useTranslation } from "react-i18next" // Translation
 
 // Redux
-import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux"
 import {
   add_item,
   decrement_quantity,
   remove_item,
   clear_cart,
-} from "../../redux/cartSlice";
+} from "../../redux/cartSlice"
 
 const CartItem = ({ item }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const { t } = useTranslation();
-  const { title, cover, price, quantity } = item;
+  const { t } = useTranslation()
+  const { title, cover, price, quantity } = item
 
   // Removing item from cart
-  const handleRemove = (item) => {
-    dispatch(remove_item(item));
-  };
+  const handleRemove = item => dispatch(remove_item(item))
 
   // Decrementing item's quantity
-  const handleDecrement = (item) => {
-    dispatch(decrement_quantity(item));
-  };
+  const handleDecrement = item => dispatch(decrement_quantity(item))
 
   // Incrementing item's quantity
-  const handleIncrement = (item) => {
-    dispatch(add_item(item));
-  };
+  const handleIncrement = item => dispatch(add_item(item))
 
   return (
     <div className="cart-item">
@@ -77,7 +71,7 @@ const CartItem = ({ item }) => {
         <i className="fas fa-trash-alt"></i>
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default CartItem;
+export default CartItem

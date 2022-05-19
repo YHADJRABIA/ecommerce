@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const NotFoundImage = () => {
   return (
@@ -1465,7 +1465,7 @@ const NotFoundImage = () => {
         </g>
       </g>
     </svg>
-  );
-};
+  )
+}
 
-export default NotFoundImage;
+export default NotFoundImage

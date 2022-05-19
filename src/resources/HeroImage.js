@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const HeroImage = () => {
   return (
@@ -958,7 +958,7 @@ const HeroImage = () => {
         fill="#9d9cb5"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default HeroImage;
+export default HeroImage

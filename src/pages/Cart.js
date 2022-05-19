@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
 
-import { useTranslation } from "react-i18next"; // Translation
+import { useTranslation } from "react-i18next" // Translation
 
 // Redux
-import { useSelector, useDispatch } from "react-redux";
-import { fetchDiscounts } from "../redux/cartSlice";
+import { useSelector, useDispatch } from "react-redux"
+import { fetchDiscounts } from "../redux/cartSlice"
 
 // Components
-import CartImage from "../resources/CartImage"; // Svg
-import CartList from "../components/Cart/CartIList";
-import PriceContainer from "../components/Cart/PriceContainer";
-import Cashout from "../components/Cart/Checkout";
+import CartImage from "../resources/CartImage" // Svg
+import CartList from "../components/Cart/CartIList"
+import PriceContainer from "../components/Cart/PriceContainer"
+import Cashout from "../components/Cart/Checkout"
 
 const Cart = () => {
-  const dispatch = useDispatch();
-  const { t } = useTranslation();
-  const { cart, total } = useSelector((state) => state.cart);
+  const dispatch = useDispatch()
+  const { t } = useTranslation()
+  const { cart, total } = useSelector(state => state.cart)
 
   /*   useEffect(() => {
     dispatch(fetchDiscounts(cart.map((item) => item.isbn)));
@@ -37,7 +37,7 @@ const Cart = () => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

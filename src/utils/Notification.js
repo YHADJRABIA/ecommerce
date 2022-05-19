@@ -1,8 +1,8 @@
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"
 
-toast.configure();
+toast.configure()
 
-export const notify = (msg) => {
+export const notify = msg => {
   // Provide toastId to prevent duplicates
   /*     {
       toastId: "custom-id-yes",
@@ -11,5 +11,5 @@ export const notify = (msg) => {
   toast.success(msg, {
     position: toast.POSITION.TOP_RIGHT,
     icon: "📕",
-  });
-};
+  })
+}

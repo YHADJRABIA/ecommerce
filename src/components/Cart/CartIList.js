@@ -1,13 +1,13 @@
-import React from "react";
+import React from "react"
 
 // Components
-import CartItem from "./CartItem";
+import CartItem from "./CartItem"
 
 const CartList = ({ cart }) => {
   // Non-repetitive items
   const items = cart.filter(
-    (v, i, a) => a.findIndex((item) => item.isbn === v.isbn) === i
-  );
+    (v, i, a) => a.findIndex(item => item.isbn === v.isbn) === i
+  )
 
   return (
     <div className="cart-items">
@@ -19,7 +19,7 @@ const CartList = ({ cart }) => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default CartList;
+export default CartList

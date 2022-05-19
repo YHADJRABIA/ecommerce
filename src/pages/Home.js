@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
 
 // Redux
-import { useSelector, useDispatch } from "react-redux";
-import { fetchBooks } from "../redux/booksSlice";
+import { useSelector, useDispatch } from "react-redux"
+import { fetchBooks } from "../redux/booksSlice"
 
 // Components
-import Loading from "../components/Loading";
-import Searchbar from "../components/Home/Searchbar";
-import BookList from "../components/Home/BookList";
-import HeroBanner from "../components/Home/HeroBanner";
+import Loading from "../components/Loading"
+import Searchbar from "../components/Home/Searchbar"
+import BookList from "../components/Home/BookList"
+import HeroBanner from "../components/Home/HeroBanner"
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const { status, books, search } = useSelector((state) => state.books);
+  const dispatch = useDispatch()
+  const { status, books, search } = useSelector(state => state.books)
 
   useEffect(() => {
-    dispatch(fetchBooks({}));
+    dispatch(fetchBooks({}))
     // eslint-disable-next-line
-  }, []);
+  }, [])
 
   return (
     <>
@@ -34,7 +34,7 @@ const Home = () => {
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

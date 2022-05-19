@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react"
 
 // Redux
-import { useDispatch } from "react-redux";
-import { clear_cart } from "../../redux/cartSlice";
+import { useDispatch } from "react-redux"
+import { clear_cart } from "../../redux/cartSlice"
 
-import { useTranslation } from "react-i18next"; // Translation
-import { notify } from "../../utils/Notification"; // Notifications
+import { useTranslation } from "react-i18next" // Translation
+import { notify } from "../../utils/Notification" // Notifications
 
 const Checkout = ({ total, cart }) => {
-  const dispatch = useDispatch();
-  const { t } = useTranslation();
-  const [loading, setLoading] = useState(false);
-  const [paidFor, setPaidFor] = useState(false);
-  let paypalRef = useRef();
+  const dispatch = useDispatch()
+  const { t } = useTranslation()
+  const [loading, setLoading] = useState(false)
+  const [paidFor, setPaidFor] = useState(false)
+  let paypalRef = useRef()
 
   useEffect(() => {
     window.paypal
@@ -42,33 +42,33 @@ const Checkout = ({ total, cart }) => {
                 },
               },
             },
-          });
+          })
         },
 
         // If successful transaction
         onApprove: async (data, actions) => {
-          setLoading(true);
-          await actions.order.capture();
-          setPaidFor(true);
-          dispatch(clear_cart());
-          setLoading(false);
-          notify(t("successfulTransaction"));
+          setLoading(true)
+          await actions.order.capture()
+          setPaidFor(true)
+          dispatch(clear_cart())
+          setLoading(false)
+          notify(t("successfulTransaction"))
         },
 
         // If cancelled transaction
-        onCancel: (data) => {
-          setPaidFor(false);
-          setLoading(false);
+        onCancel: data => {
+          setPaidFor(false)
+          setLoading(false)
         },
 
         // If error
-        onError: (err) => {
-          console.log(err);
-          setLoading(false);
+        onError: err => {
+          console.log(err)
+          setLoading(false)
         },
       })
-      .render(paypalRef.current);
-  }, []);
+      .render(paypalRef.current)
+  }, [])
 
   return (
     <div className="checkout-section">
@@ -79,7 +79,7 @@ const Checkout = ({ total, cart }) => {
         <div ref={paypalRef} disabled={loading}></div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Checkout;
+export default Checkout

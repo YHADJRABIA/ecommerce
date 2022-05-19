@@ -1,11 +1,11 @@
-import React from "react";
+import React from "react"
 
-import { Switch, Route } from "react-router-dom"; //Router
+import { Switch, Route } from "react-router-dom" //Router
 
 // Components
-import Home from "../pages/Home";
-import NotFound from "../pages/NotFound";
-import Cart from "../pages/Cart";
+import Home from "../pages/Home"
+import NotFound from "../pages/NotFound"
+import Cart from "../pages/Cart"
 
 const Body = () => {
   return (
@@ -20,7 +20,7 @@ const Body = () => {
         <Route path={"/*"} component={NotFound} />
       </Switch>
     </main>
-  );
-};
+  )
+}
 
-export default Body;
+export default Body

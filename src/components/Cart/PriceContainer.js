@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 
-import { useTranslation } from "react-i18next"; // Translation
+import { useTranslation } from "react-i18next" // Translation
 
 const PriceContainer = ({ total }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <div className="cart-total">
@@ -24,7 +24,7 @@ const PriceContainer = ({ total }) => {
         {t("grandTotal")} <em>{total.toFixed(2)} €</em>
       </h5>
     </div>
-  );
-};
+  )
+}
 
-export default PriceContainer;
+export default PriceContainer

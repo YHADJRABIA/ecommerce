@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 
 // Components
-import Nav from "./Nav";
+import Nav from "./Nav"
 
 const Header = () => {
-  return <Nav />;
-};
+  return <Nav />
+}
 
-export default Header;
+export default Header

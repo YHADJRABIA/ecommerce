@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const CartImage = () => {
   return (
@@ -186,7 +186,7 @@ const CartImage = () => {
       <rect x="218.2485" y="134.90779" width="2" height="18.5" fill="#f2f2f2" />
       <rect x="279.2485" y="134.90779" width="2" height="18.5" fill="#f2f2f2" />
     </svg>
-  );
-};
+  )
+}
 
-export default CartImage;
+export default CartImage
